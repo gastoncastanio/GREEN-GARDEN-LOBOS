@@ -5,27 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Envíos — El Quebracho · Zonas de cobertura en Buenos Aires</title>
   <meta name="description" content="Mapa interactivo de zonas de envío. Cubrimos Lobos y más de 40 municipios de la provincia de Buenos Aires. Consultá tu zona y tiempos de entrega." />
-  <meta name="theme-color" content="#1a0e05" />
+  <meta name="theme-color" content="#0B0705" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/main.css" />
   <style>
     .cobertura-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.2rem; margin-top:2.5rem; }
-    .muni-card { background:#fff; border:1px solid rgba(61,43,31,.08); border-radius:var(--radius-sm); padding:1.3rem; box-shadow:var(--shadow-soft); }
-    .muni-card h4 { font-family:var(--font-body); font-weight:700; margin-bottom:.6rem; display:flex; align-items:center; gap:.5rem; }
-    .muni-card ul { color:var(--madera); font-size:.92rem; }
+    .muni-card { background:#fff; border:1px solid rgba(233,185,73,.12); border-radius:0; padding:1.3rem; box-shadow:0 4px 12px rgba(0,0,0,.08); }
+    .muni-card h4 { font-family:var(--font-body); font-weight:600; margin-bottom:.6rem; display:flex; align-items:center; gap:.5rem; color:var(--negro); }
+    .muni-card ul { color:var(--gris); font-size:.92rem; }
     .muni-card li { padding:.15rem 0; }
     .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; margin-top:2.5rem; }
     .step { text-align:center; padding:1.5rem; }
-    .step .n { width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--fuego),var(--brasa)); color:var(--carbon); font-family:var(--font-display); font-weight:700; font-size:1.4rem; display:grid; place-items:center; margin:0 auto 1rem; }
-    .step h4 { font-family:var(--font-body); margin-bottom:.4rem; }
-    .step p { color:var(--humo-dim); font-size:.92rem; }
+    .step .n { width:48px; height:48px; border-radius:0; background:var(--oro); color:var(--negro); font-family:var(--font-display); font-weight:700; font-size:1.4rem; display:grid; place-items:center; margin:0 auto 1rem; }
+    .step h4 { font-family:var(--font-body); margin-bottom:.4rem; font-weight:600; }
+    .step p { color:var(--gris); font-size:.92rem; }
   </style>
 </head>
 <body>
 
-  <div class="promo-banner">🔥 <strong>10% OFF</strong> pagando por transferencia · Envíos a toda la Pcia. de Buenos Aires</div>
+  <div class="promo-banner">🔥 <strong>25% OFF por transferencia</strong> · Envíos gratis desde $99.999</div>
 
   <header class="navbar">
     <nav class="nav-inner container" aria-label="Principal">
@@ -69,17 +69,17 @@
         </div>
         <div class="zonas-list">
           <div class="zona-item reveal">
-            <span class="dot" style="background:#2E5E30"></span>
+            <span class="dot" style="background:#E9B949"></span>
             <div><h4>Lobos y alrededores</h4><p>Gilbert, Empalme, Salvador María, Elvira</p></div>
             <span class="tiempo">Hoy</span>
           </div>
           <div class="zona-item reveal d1">
-            <span class="dot" style="background:#C65B1A"></span>
+            <span class="dot" style="background:#D2691E"></span>
             <div><h4>GBA Oeste y Sur</h4><p>Cañuelas, San Vicente, Las Heras, Mercedes, Luján</p></div>
             <span class="tiempo">24 hs</span>
           </div>
           <div class="zona-item reveal d2">
-            <span class="dot" style="background:#cdbfa8"></span>
+            <span class="dot" style="background:#8C8070"></span>
             <div><h4>Interior de Bs. As.</h4><p>+40 municipios · consultá tu localidad</p></div>
             <span class="tiempo">48 hs</span>
           </div>
@@ -98,15 +98,15 @@
       <h2 class="section-title reveal d1">Algunas de las zonas donde llegamos</h2>
       <div class="cobertura-grid">
         <div class="muni-card reveal">
-          <h4><span class="dot" style="width:12px;height:12px;border-radius:50%;background:#2E5E30;display:inline-block"></span> Entrega en el día</h4>
+          <h4><span class="dot" style="width:12px;height:12px;border-radius:0;background:#E9B949;display:inline-block"></span> Entrega en el día</h4>
           <ul><li>Lobos centro</li><li>Gilbert</li><li>Empalme Lobos</li><li>Salvador María</li><li>Elvira</li></ul>
         </div>
         <div class="muni-card reveal d1">
-          <h4><span class="dot" style="width:12px;height:12px;border-radius:50%;background:#C65B1A;display:inline-block"></span> 24 horas</h4>
+          <h4><span class="dot" style="width:12px;height:12px;border-radius:0;background:#D2691E;display:inline-block"></span> 24 horas</h4>
           <ul><li>Cañuelas</li><li>San Vicente</li><li>Las Heras (Gral.)</li><li>Lobos a Luján</li><li>Mercedes</li><li>Navarro</li></ul>
         </div>
         <div class="muni-card reveal d2">
-          <h4><span class="dot" style="width:12px;height:12px;border-radius:50%;background:#cdbfa8;display:inline-block"></span> 48 horas</h4>
+          <h4><span class="dot" style="width:12px;height:12px;border-radius:0;background:#8C8070;display:inline-block"></span> 48 horas</h4>
           <ul><li>La Plata</li><li>Chivilcoy</li><li>Saladillo</li><li>25 de Mayo</li><li>+40 municipios más</li></ul>
         </div>
       </div>
@@ -142,7 +142,7 @@
         <div><h4>Zonas</h4><ul><li>Lobos y alrededores</li><li>GBA Oeste y Sur</li><li>Interior de Bs. As.</li><li><a href="envios.html">Ver cobertura →</a></li></ul></div>
         <div><h4>Contacto</h4><ul><li><a data-wa="Hola! 🔥">WhatsApp: 11-2371-3598</a></li><li><a data-ig>@elquebrachitolobos</a></li><li>Lobos, Buenos Aires</li></ul></div>
       </div>
-      <div class="footer-bottom"><span>© <span data-year>2025</span> El Quebracho · Todos los derechos reservados.</span><span>Hecho con 🔥 en Lobos, Buenos Aires</span></div>
+      <div class="footer-bottom"><p style="font-size:.85rem;color:var(--gris);margin-bottom:.5rem">El Quebrachito es la marca premium de <strong>Green Garden Lobos</strong></p><span>© <span data-year>2025</span> El Quebracho · Todos los derechos reservados.</span><span>Hecho con 🔥 en Lobos, Buenos Aires</span></div>
     </div>
   </footer>
 
