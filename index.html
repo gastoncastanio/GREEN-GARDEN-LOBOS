@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Quebrachito — Carbón Premium de Green Garden Lobos</title>
+  <meta name="description" content="El Quebrachito: carbón y leña de quebracho puro, traído del norte. Marca premium de Green Garden Lobos. Envíos a toda Buenos Aires." />
+  <meta name="theme-color" content="#0B0705" />
+  <meta property="og:title" content="El Quebrachito — Carbón Premium" />
+  <meta property="og:description" content="Quebracho puro del norte. Marca de carbón premium para asadores argentinos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+
+  <!-- Fuentes premium -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    /* Sobrescrituras para nuevo design */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      text-transform: none;
+      letter-spacing: -0.01em;
+      font-weight: 700;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(11, 7, 5, 0.7), rgba(210, 105, 30, 0.4)),
+                  url('https://images.unsplash.com/photo-1543372552-e3d2d6a5a9d9?w=1200&auto=format&fit=crop&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      z-index: -1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 5.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--crema);
+      font-weight: 800;
+    }
+
+    .hero-highlight {
+      color: var(--oro);
+      display: inline;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--gris);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      line-height: 1.6;
+      font-family: var(--font-body);
+      font-weight: 400;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Línea de productos premium */
+    .products-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-block: 6rem;
+    }
+
+    .product-image {
+      aspect-ratio: 1;
+      border-radius: 0;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-info h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin-bottom: 1.2rem;
+      line-height: 1.15;
+    }
+
+    .product-info p {
+      color: var(--gris);
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .product-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .feature-item::before {
+      content: '✓';
+      color: var(--oro);
+      font-weight: 800;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .feature-item p {
+      margin: 0;
+    }
+
+    /* Grid de valores */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .value-card {
+      background: linear-gradient(135deg, var(--carbon), var(--negro-2));
+      padding: 2rem;
+      border: 1px solid var(--linea);
+      border-radius: 0;
+      transition: all 0.3s var(--ease);
+    }
+
+    .value-card:hover {
+      border-color: var(--oro);
+      box-shadow: 0 12px 40px rgba(233, 185, 73, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .value-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+      color: var(--crema);
+    }
+
+    .value-card p {
+      color: var(--gris);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Galería de productos */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: 0;
+      background: var(--carbon);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s var(--ease);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11, 7, 5, 0.9), transparent);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s var(--ease);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay h4 {
+      color: var(--oro);
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .gallery-overlay p {
+      color: var(--gris);
+      font-size: 0.85rem;
+    }
+
+    /* Split sections alternados */
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-block: 5rem;
+    }
+
+    .split-section.reverse {
+      direction: rtl;
+    }
+
+    .split-section.reverse > * {
+      direction: ltr;
+    }
+
+    .split-image {
+      aspect-ratio: 4/3;
+      border-radius: 0;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .split-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .split-content h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .split-content p {
+      color: var(--gris);
+      margin-bottom: 1.2rem;
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+
+    /* CTA prominente */
+    .cta-hero {
+      background: linear-gradient(135deg, rgba(233, 185, 73, 0.1), rgba(210, 105, 30, 0.1));
+      border: 1px solid var(--linea);
+      padding: 4rem 2rem;
+      text-align: center;
+      border-radius: 0;
+      margin-block: 5rem;
+    }
+
+    .cta-hero h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    .cta-hero p {
+      color: var(--gris);
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .products-showcase,
+      .split-section {
+        grid-template-columns: 1fr;
+      }
+
+      .split-section.reverse {
+        direction: ltr;
+      }
+
+      .split-section.reverse > * {
+        direction: ltr;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+      }
+
+      .hero-ctas a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANNER PROMO -->
+  <div class="promo-banner">🔥 <strong>25% OFF</strong> por transferencia · Envíos gratis desde $99.999</div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <nav class="nav-inner container" aria-label="Principal">
+      <a href="index.html" class="brand">
+        <span class="flame">🔥</span>
+        <span>El Quebrachito<small>Green Garden Lobos</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="envios.html">Envíos</a></li>
+        <li><a href="mayorista.html">Mayorista</a></li>
+        <li class="nav-cta">
+          <a class="btn btn-fire" data-wa="Hola! Quería hacer un pedido de El Quebrachito 🔥">Pedir ahora</a>
+        </li>
+      </ul>
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+  <div class="nav-backdrop"></div>
+
+  <!-- HERO PREMIUM -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="eyebrow" style="color: var(--oro); margin-bottom: 1rem;">CARBÓN PREMIUM DEL NORTE</div>
+        <h1>El fuego que <span class="hero-highlight">exige</span> un verdadero asador</h1>
+        <p class="hero-subtitle">100% quebracho puro, traído del norte argentino. Brasa intensa, duración superior, cero químicos. El Quebrachito es la marca de carbón de Green Garden Lobos.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-fire" data-wa="Hola! Quería hacer un pedido 🔥" style="padding: 1rem 2.2rem; font-size: 1rem;">Pedir tu pack</a>
+          <a class="btn btn-outline on-dark" href="productos.html" style="padding: 1rem 2.2rem; font-size: 1rem;">Ver catálogo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIA PREMIUM -->
+  <section class="section section-dark">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <div class="eyebrow">POR QUÉ ELEGIRNOS</div>
+        <h2 style="font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 1rem;">Lo que nos hace diferentes</h2>
+        <p style="color: var(--gris); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">No vendemos una bolsa más de carbón. Vendemos la certeza de que tu fuego va a estar a la altura del momento.</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>100% Quebracho</h3>
+          <p>Sin mezclas, sin rellenos. Traído del norte, transformado en brasa pura.</p>
+        </div>
+        <div class="value-card">
+          <h3>Fuego de verdad</h3>
+          <p>Madera que entiende el ritmo del asado. Brasa consistente, sin sorpresas.</p>
+        </div>
+        <div class="value-card">
+          <h3>Trato con respeto</h3>
+          <p>Precio claro, entregas que se cumplen, y la confianza de quienes ya nos eligen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPLIT: PROCESO DE SELECCIÓN -->
+  <section class="section">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-image">
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561341?w=800&auto=format&fit=crop&q=80" alt="Carbón de quebracho premium">
+        </div>
+        <div class="split-content">
+          <h2>Seleccionado con criterio</h2>
+          <p>Cada bolsa es resultado de una cadena controlada. Traemos quebracho puro desde el norte argentino. Madera dura, nativa, de las que dan fuego de verdad. No apuramos lo que la naturaleza hace mejor.</p>
+          <div class="product-features">
+            <div class="feature-item"><p><strong>Origen verificado</strong> – Trazabilidad completa desde el campo</p></div>
+            <div class="feature-item"><p><strong>Proceso natural</strong> – Sin químicos ni acelerantes</p></div>
+            <div class="feature-item"><p><strong>Control de calidad</strong> – Cada lote inspeccionado</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA DE PRODUCTOS -->
+  <section class="section section-dark">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 style="font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 1rem;">Líneas de producto</h2>
+        <p style="color: var(--gris); max-width: 600px; margin: 0 auto;">Cada línea diseñada para un tipo de asador. Elegí la que mejor se adapte a tu ritmo.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1543372552-e3d2d6a5a9d9?w=600&auto=format&fit=crop&q=80" alt="Línea Seleccionada">
+          <div class="gallery-overlay">
+            <h4>SELECCIONADA</h4>
+            <p>Premium y exclusiva</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1586985289688-e6e99c9b5e45?w=600&auto=format&fit=crop&q=80" alt="Línea Alto Rendimiento">
+          <div class="gallery-overlay">
+            <h4>ALTO RENDIMIENTO</h4>
+            <p>Duración máxima</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1562547409-e8c1e2b4c0e5?w=600&auto=format&fit=crop&q=80" alt="Leña de quebracho">
+          <div class="gallery-overlay">
+            <h4>LEÑA</h4>
+            <p>Fuego inicial potente</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a class="btn btn-fire" href="productos.html" style="padding: 1rem 2.2rem;">Ver todos los productos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPLIT: COBERTURA -->
+  <section class="section">
+    <div class="container">
+      <div class="split-section reverse">
+        <div class="split-image">
+          <img src="https://images.unsplash.com/photo-1549924231-f129b778055e?w=800&auto=format&fit=crop&q=80" alt="Envíos a Buenos Aires">
+        </div>
+        <div class="split-content">
+          <h2>Llegamos a tu fuego</h2>
+          <p>Cubrimos Lobos y más de 40 municipios de la provincia de Buenos Aires. Entregas rápidas, coordinadas y confiables. Desde el campo de Lobos hasta la puerta de tu parrilla.</p>
+          <div class="product-features">
+            <div class="feature-item"><p><strong>Hoy mismo</strong> – Entrega en Lobos y alrededores</p></div>
+            <div class="feature-item"><p><strong>24 hs</strong> – GBA Oeste y Sur</p></div>
+            <div class="feature-item"><p><strong>48 hs</strong> – Interior de Buenos Aires</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA MAYORISTA -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="cta-hero">
+        <h2>¿Tu negocio vive del asado?</h2>
+        <p>Carbón para restaurantes, parrillas y asadores. Precios por volumen, entregas programadas y stock asegurado todo el año.</p>
+        <a class="btn btn-fire" data-wa="Hola! Soy un negocio y quería consultar precios mayoristas 🍖">Consultar plan mayorista</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <h2 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1.5rem;">¿Prendemos un fuego juntos?</h2>
+      <p style="color: var(--gris); font-size: 1.15rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Escribinos por WhatsApp y sumate a los que ya eligen quebracho de verdad.</p>
+      <a class="btn btn-wa" data-wa="Hola! Quería hacer un pedido de El Quebrachito 🔥" style="padding: 1.1rem 2.2rem; font-size: 1.1rem;">Hablar por WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand"><span class="flame">🔥</span><span style="color: var(--humo)">El Quebrachito<small>Lobos · Buenos Aires</small></span></div>
+          <p>Carbón y leña de quebracho puro. La tradición del asado argentino, hecha producto.</p>
+          <div class="socials"><a data-ig aria-label="Instagram">📷</a><a data-wa="Hola! 🔥" aria-label="WhatsApp">💬</a></div>
+        </div>
+        <div><h4>Navegación</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="productos.html">Productos</a></li><li><a href="envios.html">Envíos</a></li><li><a href="mayorista.html">Mayorista</a></li></ul></div>
+        <div><h4>Zonas</h4><ul><li>Lobos y alrededores</li><li>GBA Oeste y Sur</li><li>Interior de Bs. As.</li><li><a href="envios.html">Ver cobertura →</a></li></ul></div>
+        <div><h4>Contacto</h4><ul><li><a data-wa="Hola! 🔥">WhatsApp: 11-2371-3598</a></li><li><a data-ig>@elquebrachitolobos</a></li><li>Lobos, Buenos Aires</li></ul></div>
+      </div>
+      <div class="footer-bottom"><p style="font-size: .85rem; color: var(--gris); margin-bottom: .5rem;">El Quebrachito es la marca premium de <strong>Green Garden Lobos</strong></p><span>© 2025 El Quebrachito · Todos los derechos reservados.</span><span>Hecho con 🔥 en Lobos, Buenos Aires</span></div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a class="wa-float" data-wa="Hola! Quería hacer un pedido de El Quebrachito 🔥" aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.17-4.94-4.36-.15-.19-1.19-1.58-1.19-3.01s.75-2.14 1.02-2.43c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2.01.89 2.16.07.14.12.31.02.5-.09.19-.14.31-.27.48-.14.16-.29.37-.41.49-.14.14-.28.29-.12.57.16.27.72 1.18 1.54 1.92 1.06.94 1.95 1.24 2.22 1.38.27.14.43.12.59-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.75 1.85.89.27.14.45.2.51.31.07.11.07.64-.17 1.32z"/></svg>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

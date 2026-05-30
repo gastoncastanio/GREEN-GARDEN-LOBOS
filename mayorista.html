@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mayorista — El Quebracho · Carbón para restaurantes y asadores</title>
+  <meta name="description" content="Plan mayorista de carbón y leña de quebracho para restaurantes, parrillas y asadores. Precios por volumen, entregas programadas y stock asegurado." />
+  <meta name="theme-color" content="#0B0705" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .tiers { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.6rem; margin-top:3rem; }
+    .tier { background:#fff; border:1px solid rgba(233,185,73,.14); border-radius:0; padding:2rem 1.7rem; text-align:center; transition:transform .3s var(--ease),border-color .3s; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+    .tier:hover { transform:translateY(-6px); border-color:var(--oro); box-shadow:0 8px 24px rgba(233,185,73,.15); }
+    .tier.featured { border-color:var(--oro); box-shadow:0 8px 24px rgba(233,185,73,.15); }
+    .tier .badge { display:inline-block; background:var(--oro); color:var(--negro); font-size:.72rem; font-weight:700; padding:.3rem .9rem; border-radius:0; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.05em; }
+    .tier h3 { color:var(--negro); font-size:1.5rem; margin-bottom:.4rem; font-family:var(--font-display); font-weight:700; }
+    .tier .vol { color:var(--gris); font-size:.9rem; margin-bottom:1.2rem; }
+    .tier .off { font-family:var(--font-display); font-size:3rem; color:var(--oro); line-height:1; margin-bottom:.3rem; font-weight:700; }
+    .tier .off small { font-size:1rem; color:var(--gris); }
+    .tier ul { text-align:left; margin:1.4rem 0; display:flex; flex-direction:column; gap:.6rem; }
+    .tier li { color:var(--gris); font-size:.92rem; display:flex; gap:.5rem; }
+    .tier li::before { content:'✓'; color:var(--oro); font-weight:800; }
+    .tier .btn { width:100%; justify-content:center; }
+    .faq { max-width:720px; margin-inline:auto; }
+    .faq details { border-bottom:1px solid rgba(233,185,73,.08); padding:1.1rem 0; }
+    .faq summary { font-weight:600; cursor:pointer; font-size:1.05rem; list-style:none; display:flex; justify-content:space-between; align-items:center; color:var(--negro); }
+    .faq summary::after { content:'+'; color:var(--oro); font-size:1.4rem; }
+    .faq details[open] summary::after { content:'−'; }
+    .faq p { color:var(--gris); margin-top:.7rem; }
+  </style>
+</head>
+<body>
+
+  <div class="promo-banner">🍖 <strong>Precios mayoristas</strong> para restaurantes, parrillas y asadores profesionales</div>
+
+  <header class="navbar">
+    <nav class="nav-inner container" aria-label="Principal">
+      <a href="index.html" class="brand"><span class="flame">🔥</span><span>El Quebracho<small>Lobos · Buenos Aires</small></span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="envios.html">Envíos</a></li>
+        <li><a href="mayorista.html" class="active">Mayorista</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li class="nav-cta"><a class="btn btn-fire" data-wa="Hola! Soy un negocio y quería consultar precios mayoristas 🍖">Consultar precios</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+  <div class="nav-backdrop"></div>
+
+  <section class="page-header">
+    <div class="container">
+      <p class="breadcrumb"><a href="index.html">Inicio</a> / Mayorista</p>
+      <h1>Carbón para profesionales del fuego</h1>
+      <p>Si tu negocio vive del asado, te damos precio por volumen, entrega programada y stock asegurado todo el año.</p>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow reveal">Por qué elegirnos</p>
+      <h2 class="section-title reveal d1">Pensado para restaurantes y asadores</h2>
+      <div class="value-grid">
+        <article class="value-card reveal"><div class="ico">📉</div><h3>Precio por volumen</h3><p>Hasta 25% de descuento según la cantidad. Cuanto más comprás, mejor pagás.</p></article>
+        <article class="value-card reveal d1"><div class="ico">📅</div><h3>Entrega programada</h3><p>Coordinamos entregas semanales o quincenales para que nunca te quedes sin brasa.</p></article>
+        <article class="value-card reveal d2"><div class="ico">🧾</div><h3>Factura y cuenta corriente</h3><p>Facturación A/B y opción de cuenta corriente para clientes habituales.</p></article>
+        <article class="value-card reveal"><div class="ico">📦</div><h3>Stock asegurado</h3><p>Producción propia desde el campo. Tenés quebracho todo el año, sin faltantes.</p></article>
+        <article class="value-card reveal d1"><div class="ico">🔥</div><h3>Calidad constante</h3><p>Mismo quebracho puro en cada entrega. Tu carta de asados, siempre pareja.</p></article>
+        <article class="value-card reveal d2"><div class="ico">🤝</div><h3>Asesoramiento</h3><p>Te ayudamos a elegir el carbón ideal para tu parrilla y tu ritmo de trabajo.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESCALONES DE PRECIO -->
+  <section class="section section-dark">
+    <div class="container text-center">
+      <p class="eyebrow reveal">Descuentos por volumen</p>
+      <h2 class="section-title reveal d1">Más fuego, mejor precio</h2>
+      <div class="tiers">
+        <div class="tier reveal">
+          <h3>Inicial</h3>
+          <p class="vol">50 – 150 kg / mes</p>
+          <div class="off">-10%<small> off</small></div>
+          <ul><li>Precio mayorista base</li><li>Entrega a coordinar</li><li>Pago por transferencia</li></ul>
+          <a class="btn btn-outline on-dark" data-wa="Hola! Me interesa el plan mayorista Inicial (50-150 kg/mes) 🍖">Consultar</a>
+        </div>
+        <div class="tier featured reveal d1">
+          <span class="badge">Más elegido</span>
+          <h3>Parrilla</h3>
+          <p class="vol">150 – 400 kg / mes</p>
+          <div class="off">-18%<small> off</small></div>
+          <ul><li>Entrega semanal programada</li><li>Factura A/B</li><li>Atención prioritaria</li></ul>
+          <a class="btn btn-fire" data-wa="Hola! Me interesa el plan mayorista Parrilla (150-400 kg/mes) 🍖">Consultar</a>
+        </div>
+        <div class="tier reveal d2">
+          <h3>Volumen</h3>
+          <p class="vol">+400 kg / mes</p>
+          <div class="off">-25%<small> off</small></div>
+          <ul><li>Cuenta corriente</li><li>Logística dedicada</li><li>Precio negociado</li></ul>
+          <a class="btn btn-outline on-dark" data-wa="Hola! Manejo +400 kg/mes y quería hablar del plan Volumen 🍖">Consultar</a>
+        </div>
+      </div>
+      <p class="reveal" style="color:var(--txt-muted);margin-top:1.8rem;font-size:.9rem">* Porcentajes orientativos. El precio final se ajusta según producto, volumen y zona de entrega.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow reveal text-center">Preguntas frecuentes</p>
+      <h2 class="section-title reveal d1 text-center" style="margin-bottom:2.5rem">Lo que suelen consultar</h2>
+      <div class="faq reveal d2">
+        <details><summary>¿Cuál es el pedido mínimo mayorista?</summary><p>El plan mayorista arranca en 50 kg mensuales. Por debajo de eso, aplican los precios del catálogo general.</p></details>
+        <details><summary>¿Hacen factura?</summary><p>Sí, emitimos factura A y B. Para clientes habituales ofrecemos también cuenta corriente.</p></details>
+        <details><summary>¿Con cuánta anticipación entregan?</summary><p>Para zonas de GBA, 24 a 48 hs. Con entregas programadas semanales coordinamos un día fijo para tu negocio.</p></details>
+        <details><summary>¿El precio incluye envío?</summary><p>Depende de la zona y el volumen. En pedidos grandes el envío suele estar bonificado — lo confirmamos al cotizar.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-final">
+    <div class="container">
+      <span class="badge-off reveal">🍖 Plan mayorista</span>
+      <h2 class="reveal d1">Pedí tu cotización sin compromiso</h2>
+      <p class="reveal d2">Contanos cuánto fuego hacés por mes y te armamos un precio a tu medida.</p>
+      <div class="reveal d3">
+        <a class="btn btn-wa" style="padding:1.1rem 2.2rem;font-size:1.1rem" data-wa="Hola! Soy un negocio y quería una cotización mayorista. Manejo aprox ___ kg por mes 🍖">Pedir cotización</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand"><span class="flame">🔥</span><span style="color:var(--humo)">El Quebracho<small>Lobos · Buenos Aires</small></span></div>
+          <p>Carbón y leña de quebracho puro. La tradición del asado argentino, hecha producto.</p>
+          <div class="socials"><a data-ig aria-label="Instagram">📷</a><a data-wa="Hola! 🔥" aria-label="WhatsApp">💬</a></div>
+        </div>
+        <div><h4>Navegación</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="productos.html">Productos</a></li><li><a href="envios.html">Envíos</a></li><li><a href="mayorista.html">Mayorista</a></li><li><a href="nosotros.html">Nosotros</a></li></ul></div>
+        <div><h4>Zonas</h4><ul><li>Lobos y alrededores</li><li>GBA Oeste y Sur</li><li>Interior de Bs. As.</li><li><a href="envios.html">Ver cobertura →</a></li></ul></div>
+        <div><h4>Contacto</h4><ul><li><a data-wa="Hola! 🔥">WhatsApp: 11-2371-3598</a></li><li><a data-ig>@elquebrachitolobos</a></li><li>Lobos, Buenos Aires</li></ul></div>
+      </div>
+      <div class="footer-bottom"><p style="font-size:.85rem;color:var(--gris);margin-bottom:.5rem">El Quebrachito es la marca premium de <strong>Green Garden Lobos</strong></p><span>© <span data-year>2025</span> El Quebracho · Todos los derechos reservados.</span><span>Hecho con 🔥 en Lobos, Buenos Aires</span></div>
+    </div>
+  </footer>
+
+  <a class="wa-float" data-wa="Hola! Quería consultar precios mayoristas 🍖" aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.17-4.94-4.36-.15-.19-1.19-1.58-1.19-3.01s.75-2.14 1.02-2.43c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2.01.89 2.16.07.14.12.31.02.5-.09.19-.14.31-.27.48-.14.16-.29.37-.41.49-.14.14-.28.29-.12.57.16.27.72 1.18 1.54 1.92 1.06.94 1.95 1.24 2.22 1.38.27.14.43.12.59-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.61-.13.25.09 1.58.75 1.85.89.27.14.45.2.51.31.07.11.07.64-.17 1.32z"/></svg>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
