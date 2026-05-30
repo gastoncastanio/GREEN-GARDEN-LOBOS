@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Administración — El Quebrachito</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --negro: #0B0705; --carbon: #18100A; --carbon-2: #20150C;
+      --oro: #E9B949; --oro-claro: #F6D87F; --brasa: #D2691E;
+      --crema: #F4ECDD; --gris: #8C8070; --linea: rgba(233,185,73,.16);
+      --ok: #3C7A3E; --err: #c0392b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Outfit', sans-serif; background: var(--negro);
+      color: var(--crema); line-height: 1.6; font-size: 15px;
+    }
+    a { color: var(--oro); }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 1.5rem; }
+
+    header.bar {
+      background: var(--carbon); border-bottom: 1px solid var(--linea);
+      padding: 1rem 1.5rem; display: flex; justify-content: space-between;
+      align-items: center; position: sticky; top: 0; z-index: 10;
+    }
+    header.bar .logo { font-weight: 800; font-size: 1.1rem; }
+    header.bar .logo small { display: block; font-size: .7rem; color: var(--gris); font-weight: 500; }
+    .status-dot { font-size: .8rem; color: var(--gris); }
+
+    h1 { font-size: 1.6rem; margin-bottom: .3rem; }
+    h2 { font-size: 1.2rem; margin: 2rem 0 1rem; color: var(--oro); border-bottom: 1px solid var(--linea); padding-bottom: .5rem; }
+    p.sub { color: var(--gris); margin-bottom: 1.5rem; }
+
+    .card {
+      background: var(--carbon); border: 1px solid var(--linea);
+      padding: 1.3rem; margin-bottom: 1rem; border-radius: 4px;
+    }
+    label { display: block; font-size: .8rem; font-weight: 600; color: var(--gris); margin-bottom: .3rem; margin-top: .8rem; text-transform: uppercase; letter-spacing: .03em; }
+    label:first-child { margin-top: 0; }
+    input, textarea, select {
+      width: 100%; padding: .7rem .8rem; background: var(--negro);
+      border: 1px solid var(--linea); color: var(--crema);
+      border-radius: 4px; font-family: inherit; font-size: .95rem;
+    }
+    input:focus, textarea:focus { outline: none; border-color: var(--oro); }
+    textarea { resize: vertical; min-height: 70px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .75rem 1.4rem; background: var(--oro); color: var(--negro);
+      border: none; border-radius: 4px; font-weight: 700; cursor: pointer;
+      font-family: inherit; font-size: .95rem; transition: all .2s;
+    }
+    .btn:hover { background: var(--oro-claro); }
+    .btn.ghost { background: transparent; color: var(--crema); border: 1px solid var(--linea); }
+    .btn.ghost:hover { border-color: var(--oro); color: var(--oro); }
+    .btn.danger { background: transparent; color: var(--err); border: 1px solid var(--err); }
+    .btn.danger:hover { background: var(--err); color: #fff; }
+    .btn:disabled { opacity: .5; cursor: not-allowed; }
+
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 600px) { .row { grid-template-columns: 1fr; } }
+
+    .toast {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; padding: 1rem 1.4rem;
+      border-radius: 6px; font-weight: 600; z-index: 100; max-width: 360px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.5); transform: translateY(120%);
+      transition: transform .3s; background: var(--ok); color: #fff;
+    }
+    .toast.show { transform: translateY(0); }
+    .toast.err { background: var(--err); }
+
+    .hidden { display: none !important; }
+
+    .prod-item {
+      display: flex; gap: 1rem; align-items: center;
+      padding: .8rem; border: 1px solid var(--linea); border-radius: 4px;
+      margin-bottom: .6rem; background: var(--negro);
+    }
+    .prod-item img { width: 56px; height: 56px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
+    .prod-item .info { flex: 1; min-width: 0; }
+    .prod-item .info strong { display: block; }
+    .prod-item .info span { font-size: .82rem; color: var(--gris); }
+    .prod-item .acts { display: flex; gap: .4rem; }
+    .prod-item .acts button { padding: .4rem .7rem; font-size: .8rem; }
+
+    .login-box { max-width: 460px; margin: 4rem auto; }
+    .help { font-size: .82rem; color: var(--gris); margin-top: .4rem; }
+    .img-preview { width: 100%; max-width: 200px; aspect-ratio: 1; object-fit: cover; border-radius: 4px; margin-top: .5rem; border: 1px solid var(--linea); }
+    .badge { display: inline-block; background: var(--brasa); color: #fff; font-size: .65rem; padding: .15rem .5rem; border-radius: 3px; font-weight: 700; margin-left: .5rem; }
+    .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(0,0,0,.3); border-top-color: var(--negro); border-radius: 50%; animation: spin .6s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+  <header class="bar">
+    <div class="logo">🔥 El Quebrachito <small>Panel de administración</small></div>
+    <div class="status-dot" id="connStatus">Sin conectar</div>
+  </header>
+
+  <!-- LOGIN -->
+  <section id="loginView" class="wrap">
+    <div class="login-box card">
+      <h1>Acceso al panel</h1>
+      <p class="sub">Conectá con tu repositorio de GitHub para editar el contenido del sitio.</p>
+
+      <label>Usuario / Organización de GitHub</label>
+      <input id="ghOwner" placeholder="gastoncastanio" value="gastoncastanio" />
+
+      <label>Repositorio</label>
+      <input id="ghRepo" placeholder="EL-QUEBRACHITO-WEB" value="EL-QUEBRACHITO-WEB" />
+
+      <label>Rama</label>
+      <input id="ghBranch" placeholder="main" value="main" />
+
+      <label>Token de acceso (Personal Access Token)</label>
+      <input id="ghToken" type="password" placeholder="ghp_..." />
+      <p class="help">
+        Necesitás un token con permiso <strong>Contents: Read and write</strong>.
+        <a href="https://github.com/settings/tokens?type=beta" target="_blank">Generar token →</a><br>
+        El token se guarda solo en tu navegador, nunca se envía a otro lado.
+      </p>
+
+      <div style="margin-top:1.3rem; display:flex; gap:.6rem;">
+        <button class="btn" id="btnLogin">Conectar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL -->
+  <section id="panelView" class="wrap hidden">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem;">
+      <div>
+        <h1>Editor de contenido</h1>
+        <p class="sub" id="repoLabel"></p>
+      </div>
+      <div style="display:flex; gap:.6rem;">
+        <button class="btn ghost" id="btnReload">Recargar</button>
+        <button class="btn ghost" id="btnLogout">Salir</button>
+      </div>
+    </div>
+
+    <!-- CONFIG GENERAL -->
+    <h2>Ajustes generales</h2>
+    <div class="card">
+      <div class="row">
+        <div><label>WhatsApp (con código país)</label><input id="cfgWa" placeholder="5491123713598" /></div>
+        <div><label>Instagram (sin @)</label><input id="cfgIg" placeholder="elquebrachitolobos" /></div>
+      </div>
+      <label>Banner promocional</label>
+      <input id="cfgBanner" />
+    </div>
+
+    <!-- HERO -->
+    <h2>Sección principal (Hero)</h2>
+    <div class="card">
+      <label>Título</label>
+      <input id="heroTitulo" />
+      <div class="row">
+        <div><label>Palabra destacada (en oro)</label><input id="heroPalabra" /></div>
+        <div><label>Eyebrow (texto chico arriba)</label><input id="heroEyebrow" /></div>
+      </div>
+      <label>Subtítulo</label>
+      <textarea id="heroSubtitulo"></textarea>
+      <label>Imagen de fondo</label>
+      <input id="heroImagen" placeholder="URL de la imagen" />
+      <input type="file" accept="image/*" id="heroFile" style="margin-top:.5rem" />
+      <p class="help">Pegá una URL o subí una imagen (se guarda en tu repo).</p>
+      <img class="img-preview hidden" id="heroPreview" />
+    </div>
+
+    <!-- PRODUCTOS -->
+    <h2>Productos <button class="btn" id="btnAddProd" style="float:right; padding:.45rem 1rem; font-size:.85rem;">+ Agregar producto</button></h2>
+    <div id="prodList"></div>
+
+    <!-- GUARDAR -->
+    <div style="margin:2.5rem 0; padding:1.3rem; background:var(--carbon); border:1px solid var(--oro); border-radius:6px; text-align:center;">
+      <p style="margin-bottom:1rem; color:var(--gris);">Cuando termines, guardá los cambios. Se publican en el sitio en 1-2 minutos.</p>
+      <button class="btn" id="btnSave" style="padding:.9rem 2.5rem; font-size:1rem;">💾 Guardar y publicar cambios</button>
+    </div>
+  </section>
+
+  <!-- MODAL PRODUCTO -->
+  <div id="prodModal" class="hidden" style="position:fixed; inset:0; background:rgba(0,0,0,.8); z-index:50; display:flex; align-items:center; justify-content:center; padding:1rem;">
+    <div class="card" style="max-width:520px; width:100%; max-height:90vh; overflow-y:auto;">
+      <h2 style="margin-top:0;" id="prodModalTitle">Producto</h2>
+      <input type="hidden" id="prodIndex" />
+      <div class="row">
+        <div><label>Línea</label><input id="prodLinea" placeholder="Seleccionada" /></div>
+        <div><label>ID interno</label><input id="prodId" placeholder="seleccionada-10kg" /></div>
+      </div>
+      <label>Nombre</label>
+      <input id="prodNombre" />
+      <label>Descripción</label>
+      <textarea id="prodDesc"></textarea>
+      <div class="row">
+        <div><label>Precio lista ($)</label><input id="prodPrecio" placeholder="18.999" /></div>
+        <div><label>Precio transferencia ($)</label><input id="prodPrecioT" placeholder="14.249" /></div>
+      </div>
+      <label>Imagen</label>
+      <input id="prodImagen" placeholder="URL de la imagen" />
+      <input type="file" accept="image/*" id="prodFile" style="margin-top:.5rem" />
+      <img class="img-preview hidden" id="prodPreview" />
+      <label style="display:flex; align-items:center; gap:.5rem; margin-top:1rem; text-transform:none;">
+        <input type="checkbox" id="prodDestacado" style="width:auto;" /> Producto destacado
+      </label>
+      <div style="margin-top:1.5rem; display:flex; gap:.6rem; justify-content:flex-end;">
+        <button class="btn ghost" id="prodCancel">Cancelar</button>
+        <button class="btn" id="prodSaveLocal">Guardar producto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

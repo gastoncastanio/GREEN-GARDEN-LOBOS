@@ -1,0 +1,61 @@
+{
+  "config": {
+    "marca": "El Quebrachito",
+    "submarca": "Green Garden Lobos",
+    "whatsapp": "5491123713598",
+    "instagram": "elquebrachitolobos",
+    "promoBanner": "🔥 25% OFF por transferencia · Envíos gratis desde $99.999",
+    "envioGratisDesde": "99.999"
+  },
+  "hero": {
+    "eyebrow": "CARBÓN PREMIUM DEL NORTE",
+    "titulo": "El fuego que exige un verdadero asador",
+    "palabraDestacada": "exige",
+    "subtitulo": "100% quebracho puro, traído del norte argentino. Brasa intensa, duración superior, cero químicos. El Quebrachito es la marca de carbón de Green Garden Lobos.",
+    "imagen": "https://images.unsplash.com/photo-1543372552-e3d2d6a5a9d9?w=1200&auto=format&fit=crop&q=80"
+  },
+  "valores": [
+    { "titulo": "100% Quebracho", "texto": "Sin mezclas, sin rellenos. Traído del norte, transformado en brasa pura." },
+    { "titulo": "Fuego de verdad", "texto": "Madera que entiende el ritmo del asado. Brasa consistente, sin sorpresas." },
+    { "titulo": "Trato con respeto", "texto": "Precio claro, entregas que se cumplen, y la confianza de quienes ya nos eligen." }
+  ],
+  "productos": [
+    {
+      "id": "seleccionada-10kg",
+      "linea": "Seleccionada",
+      "nombre": "Carbón Seleccionado 10kg",
+      "descripcion": "Quebracho premium seleccionado pieza por pieza. Brasa intensa y pareja para el asador exigente.",
+      "precio": "18.999",
+      "precioTransferencia": "14.249",
+      "imagen": "https://images.unsplash.com/photo-1555939594-58d7cb561341?w=800&auto=format&fit=crop&q=80",
+      "destacado": true
+    },
+    {
+      "id": "alto-rendimiento-15kg",
+      "linea": "Alto Rendimiento",
+      "nombre": "Alto Rendimiento 15kg",
+      "descripcion": "Máxima duración para jornadas largas. Ideal para parrillas y eventos.",
+      "precio": "24.999",
+      "precioTransferencia": "18.749",
+      "imagen": "https://images.unsplash.com/photo-1586985289688-e6e99c9b5e45?w=800&auto=format&fit=crop&q=80",
+      "destacado": false
+    },
+    {
+      "id": "lena-bolson",
+      "linea": "Leña",
+      "nombre": "Leña de Quebracho · Bolsón",
+      "descripcion": "Fuego inicial potente y aromático. Para los que arrancan el asado a la vieja usanza.",
+      "precio": "15.999",
+      "precioTransferencia": "11.999",
+      "imagen": "https://images.unsplash.com/photo-1562547409-e8c1e2b4c0e5?w=800&auto=format&fit=crop&q=80",
+      "destacado": false
+    }
+  ],
+  "envios": {
+    "zonas": [
+      { "nombre": "Lobos y alrededores", "detalle": "Gilbert, Empalme, Salvador María, Elvira", "tiempo": "Hoy" },
+      { "nombre": "GBA Oeste y Sur", "detalle": "Cañuelas, San Vicente, Las Heras, Mercedes, Luján", "tiempo": "24 hs" },
+      { "nombre": "Interior de Bs. As.", "detalle": "+40 municipios · consultá tu localidad", "tiempo": "48 hs" }
+    ]
+  }
+}
